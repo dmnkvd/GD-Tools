@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Graphic Design Exercise Generator</title>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  </head>
+  <body>
+  <h1>Graphic Design Exercise Generator</h1>
+    <p>Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus to <span class="focus">[?]</span>. Consider the limitations of <span class="print">[?]</span> when printing.</p>
+    <input type="button" value="Generate!" onclick="randomWord()"/>
+    <hr>
+    <table>
+        <tr>
+          <td class="type">[?]</td>
+          <td>Is a small booklet, typically printed for commercial purposes.</td>
+        </tr>
+        <tr>
+          <td class="format">[?]</td>
+          <td>Is something else.</td>
+        </tr>
+        <tr>
+            <td class="focus">[?]</td>
+            <td>Is something else.</td>
+          </tr>
+          <tr>
+            <td class="print">[?]</td>
+            <td>Is something else.</td>
+          </tr>
+      </table>
+  </body>
+
+<script>
+// The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
+    type = [
+        'Publication',
+        'Poster',
+        'Zine',
+        'Book',
+        'Brochure',
+    ];
+
+    format = [
+        'A4',
+        'Letter',
+        'A3',
+        'A2',
+        'A5',
+        'B6'
+    ];
+
+    focus = [
+        'Contrast',
+        'Letter Spacing',
+        'Whitespace',
+        'Kerning',
+    ];
+
+    print = [
+        'Inkjet',
+        'Risoprint',
+        'Silkscreen',
+        'Sublimation Print',
+        'UV Print',
+        'Xerox',
+    ];
+
+    function randomWord() {
+        one = Math.floor(Math.random() * type.length)
+        document.querySelectorAll('.type').forEach((result) => {
+            result.innerHTML = type[one];
+        });
+
+        two = Math.floor(Math.random() * format.length)
+        document.querySelectorAll('.format').forEach((result) => {
+            result.innerHTML = format[two];
+        });
+
+        three = Math.floor(Math.random() * focus.length)
+        document.querySelectorAll('.focus').forEach((result) => {
+            result.innerHTML = focus[three];
+        });
+
+        four = Math.floor(Math.random() * print.length)
+        document.querySelectorAll('.print').forEach((result) => {
+            result.innerHTML = print[four];
+        });
+    }
+</script>
+</html>

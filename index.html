@@ -32,13 +32,24 @@
 
 <script>
 // The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
+    selection = [
     type = [
-        'Publication',
-        'Poster',
-        'Zine',
-        'Book',
-        'Brochure',
-    ];
+        {
+          'Publication':'A printed work produced as a serial.'
+          },
+        {
+          'Poster':'A single printed work, containing a statement.'
+          },
+        {
+          'Zine':'An informal, typically photographic entry.'
+          },
+        {
+          'Book':'An informal, typically photographic entry.'
+          },
+        {
+          'Brochure':'An informal, typically photographic entry.'
+          },
+    ],
 
     format = [
         'A4',
@@ -47,14 +58,14 @@
         'A2',
         'A5',
         'B6'
-    ];
+    ],
 
     focus = [
         'Contrast',
         'Letter Spacing',
         'Whitespace',
         'Kerning',
-    ];
+    ],
 
     print = [
         'Inkjet',
@@ -63,28 +74,35 @@
         'Sublimation Print',
         'UV Print',
         'Xerox',
-    ];
+    ],
+        ]
 
-    function randomWord() {
-        one = Math.floor(Math.random() * type.length)
-        document.querySelectorAll('.type').forEach((result) => {
-            result.innerHTML = type[one];
+     function randomWord() {
+       for(type in selection) {
+        var num = Math.floor(Math.random() * type.length)
+        document.querySelectorAll(`.$type`).forEach((result) => {
+            result.innerHTML = type[type][num];
         });
+       }
+        // var num = Math.floor(Math.random() * type.length)
+        // document.querySelectorAll('.type').forEach((result) => {
+        //     result.innerHTML = type[num];
+        // });
 
-        two = Math.floor(Math.random() * format.length)
-        document.querySelectorAll('.format').forEach((result) => {
-            result.innerHTML = format[two];
-        });
+        // num = Math.floor(Math.random() * format.length)
+        // document.querySelectorAll('.format').forEach((result) => {
+        //     result.innerHTML = format[num];
+        // });
 
-        three = Math.floor(Math.random() * focus.length)
-        document.querySelectorAll('.focus').forEach((result) => {
-            result.innerHTML = focus[three];
-        });
+        // num = Math.floor(Math.random() * focus.length)
+        // document.querySelectorAll('.focus').forEach((result) => {
+        //     result.innerHTML = focus[num];
+        // });
 
-        four = Math.floor(Math.random() * print.length)
-        document.querySelectorAll('.print').forEach((result) => {
-            result.innerHTML = print[four];
-        });
+        // num = Math.floor(Math.random() * print.length)
+        // document.querySelectorAll('.print').forEach((result) => {
+        //     result.innerHTML = print[num];
+        // });
     }
 </script>
 </html>

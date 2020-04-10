@@ -1,5 +1,5 @@
-selection = [
-    type = [
+const selection = {
+    type:[
         {
           'Publication':'A printed work produced as a serial.'
           },
@@ -15,9 +15,9 @@ selection = [
         {
           'Brochure':'An informal, typically photographic entry.'
           },
-    ],
+        ],
 
-    format = [
+    format: [
         'A4',
         'Letter',
         'A3',
@@ -26,14 +26,14 @@ selection = [
         'B6'
     ],
 
-    focus = [
+    focus: [
         'Contrast',
         'Letter Spacing',
         'Whitespace',
         'Kerning',
     ],
 
-    print = [
+    print: [
         'Inkjet',
         'Risoprint',
         'Silkscreen',
@@ -41,6 +41,12 @@ selection = [
         'UV Print',
         'Xerox',
     ],
-        ]
-      
-    console.log(selection[1])
+}
+
+for (key in selection) {
+    var num = Math.floor(Math.random() * key.length)
+    var element = selection[key];
+    for (i = 0; i < (element.length); i++) {
+        console.log(element[i]);
+    }
+}

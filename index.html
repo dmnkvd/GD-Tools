@@ -32,8 +32,9 @@
 
 <script>
 // The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
-    selection = [
-    type = [
+
+const selection = {
+    type:[
         {
           'Publication':'A printed work produced as a serial.'
           },
@@ -49,9 +50,9 @@
         {
           'Brochure':'An informal, typically photographic entry.'
           },
-    ],
+        ],
 
-    format = [
+    format: [
         'A4',
         'Letter',
         'A3',
@@ -60,49 +61,31 @@
         'B6'
     ],
 
-    focus = [
+    focus: [
         'Contrast',
         'Letter Spacing',
         'Whitespace',
         'Kerning',
     ],
 
-    print = [
+    print: [
         'Inkjet',
         'Risoprint',
         'Silkscreen',
         'Sublimation Print',
         'UV Print',
         'Xerox',
-    ],
-        ]
+    ]
+}
 
-     function randomWord() {
-       for(type in selection) {
-        var num = Math.floor(Math.random() * type.length)
-        document.querySelectorAll(`.$type`).forEach((result) => {
-            result.innerHTML = type[type][num];
-        });
-       }
-        // var num = Math.floor(Math.random() * type.length)
-        // document.querySelectorAll('.type').forEach((result) => {
-        //     result.innerHTML = type[num];
-        // });
-
-        // num = Math.floor(Math.random() * format.length)
-        // document.querySelectorAll('.format').forEach((result) => {
-        //     result.innerHTML = format[num];
-        // });
-
-        // num = Math.floor(Math.random() * focus.length)
-        // document.querySelectorAll('.focus').forEach((result) => {
-        //     result.innerHTML = focus[num];
-        // });
-
-        // num = Math.floor(Math.random() * print.length)
-        // document.querySelectorAll('.print').forEach((result) => {
-        //     result.innerHTML = print[num];
-        // });
-    }
+        function randomWord() {
+          for (key in selection) {
+            var num = Math.floor(Math.random() * key.length)
+            var element = selection[key];
+            document.querySelectorAll(`.${key}`).forEach((result) => {
+              result.innerHTML = element[num];
+            })
+          }
+        };
 </script>
 </html>

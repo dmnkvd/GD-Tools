@@ -1,52 +1,50 @@
 const selection = {
-    type:[
-        {
-          'Publication':'A printed work produced as a serial.'
-          },
-        {
-          'Poster':'A single printed work, containing a statement.'
-          },
-        {
-          'Zine':'An informal, typically photographic entry.'
-          },
-        {
-          'Book':'An informal, typically photographic entry.'
-          },
-        {
-          'Brochure':'An informal, typically photographic entry.'
-          },
-        ],
+    type: [
+      {
+        'Publication':
+          [
+            'A printed work produced as a serial.',
+            'This and that statement.',
+            'Pay attention to the grey space!'
+          ]
+      },
+      {
+        'Poster':
+          [
+            'A single printed work, containing a statement.',
+            'This and that statement.',
+            'Pay attention to the grey space!'
+          ]
+      },
+      {
+        'Zine':
+          [
+            'A single printed work, containing a statement.',
+            'This and that statement.',
+            'Pay attention to the grey space!'
+          ]
+      },
+          ],
+  }
 
-    format: [
-        'A4',
-        'Letter',
-        'A3',
-        'A2',
-        'A5',
-        'B6'
-    ],
+//   function randomWord() {
+//     for (key in selection) {
+//       var num = Math.floor(Math.random() * key.length)
+//       var element = selection[key];
+//       for (item in element) {
+//         var subelement = element[item]
+//         for (subelement in item) {
+//         }
+//       }
 
-    focus: [
-        'Contrast',
-        'Letter Spacing',
-        'Whitespace',
-        'Kerning',
-    ],
 
-    print: [
-        'Inkjet',
-        'Risoprint',
-        'Silkscreen',
-        'Sublimation Print',
-        'UV Print',
-        'Xerox',
-    ],
-}
-
-for (key in selection) {
-    var num = Math.floor(Math.random() * key.length)
-    var element = selection[key];
-    for (i = 0; i < (element.length); i++) {
-        console.log(element[i]);
-    }
-}
+// Iterative function to loop through the Data Object
+// const iterate = (obj) => {
+//     Object.keys(obj).forEach(key => {
+//         console.log(`key: ${key}, value: ${obj[key]}`)
+//         if (typeof obj[key] === 'object') {
+//             iterate(obj[key])
+//         }
+//     })
+// }
+// iterate(selection)

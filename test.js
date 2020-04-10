@@ -27,15 +27,16 @@ const selection = {
           ],
   }
 
-//   function randomWord() {
-//     for (key in selection) {
-//       var num = Math.floor(Math.random() * key.length)
-//       var element = selection[key];
-//       for (item in element) {
-//         var subelement = element[item]
-//         for (subelement in item) {
-//         }
-//       }
+  function randomWord() {
+    for (key in selection) {
+      var subGenre = selection[key];
+      console.log(key.length)
+      }
+    }
+
+    var num = Math.floor(Math.random() * key.length)
+
+randomWord()
 
 
 // Iterative function to loop through the Data Object

@@ -1,3 +1,7 @@
+// Selection is an object with one key-value. The value of the key is an array of 3 objects. Each object has a key value pair. The value is an array of different lengths.
+// I would like to match 'Publication' with the HTML value pressed on the click of generate.
+// I would like to put the statements from the array in an unordered list in the according column.
+
 const selection = {
     type: [
       {
@@ -28,13 +32,14 @@ const selection = {
   }
 
   function randomWord() {
-    for (key in selection) {
-      var subGenre = selection[key];
-      console.log(key.length)
+    for (cat in selection) {
+        category = selection[cat]
+        for (type in cat) {
+            item = cat[type]
+            console.log(item)
+        } 
+        }
       }
-    }
-
-    var num = Math.floor(Math.random() * key.length)
 
 randomWord()
 

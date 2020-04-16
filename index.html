@@ -9,14 +9,14 @@
 
 <body>
     <h1>Graphic Design Exercise Generator</h1>
-    <p>Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus to <span
-            class="focus">[?]</span>. Consider the limitations of <span class="print">[?]</span> when printing.</p>
+    <p id="prompt">Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus
+        to <span class="focus">[?]</span>. The publication will be printed using <span class="print">[?]</span>.</p>
     <input type="button" value="Generate!" onclick="randomWord()" />
     <hr>
     <table>
         <tr>
             <td class="type">[?]</td>
-            <td class="statements">
+            <td class="type-statements">
                 <ul>
                     <li>Statement.</li>
                     <li>Statement.</li>
@@ -26,90 +26,143 @@
         </tr>
         <tr>
             <td class="format">[?]</td>
-            <td class="statements">Is something else.</td>
+            <td class="format-statements">Is something else.</td>
         </tr>
         <tr>
             <td class="focus">[?]</td>
-            <td class="statements">Is something else.</td>
+            <td class="focus-statements">Is something else.</td>
         </tr>
         <tr>
             <td class="print">[?]</td>
-            <td class="statements">Is something else.</td>
+            <td class="print-statements">Is something else.</td>
         </tr>
     </table>
 </body>
 
 <script>
-    // The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
-
     const selection = {
-        // type: [
-        //   {
-        //     'Publication':
-        //       [
-        //         'A printed work produced as a serial.',
-        //         'This and that statement.',
-        //         'Pay attention to the grey space!'
-        //       ]
-        //   },
-        //   {
-        //     'Poster':
-        //       [
-        //         'A single printed work, containing a statement.',
-        //         'This and that statement.',
-        //         'Pay attention to the grey space!'
-        //       ]
-        //   },
-        //   {
-        //     'Zine':
-        //       [
-        //         'A single printed work, containing a statement.',
-        //         'This and that statement.',
-        //         'Pay attention to the grey space!'
-        //       ]
-        //   },
-        //   {
-        //     'Book': 'An informal, typically photographic entry.'
-        //   },
-        //   {
-        //     'Brochure': 'An informal, typically photographic entry.'
-        //       ],
-
+        type: [
+            {
+                Publication: [
+                    "Publications are not that hard to design.",
+                    "Publication are also really cool.",
+                    "The paper choice is really important.",
+                ]
+            },
+            {
+                Magazine: [
+                    "Magazine statement one.",
+                    "Magazine statement two."
+                ]
+            },
+            {
+                Poster: [
+                    "Magazine statement one.",
+                ]
+            },
+        ],
         format: [
-            'A4',
-            'Letter',
-            'A3',
-            'A2',
-            'A5',
-            'B6'
+            {
+                A3: [
+                    "297 x 420 mm",
+                    "Two A4 sheets",
+                    "Maximum printing size of most common printers."
+                ]
+            },
+            {
+                A4: [
+                    "210 x 297 mm",
+                    "Trimming it down to 295mm will give you a lot more space for funky grids."
+                ]
+            },
+            {
+                B5: [
+                    "176 x 250 mm"
+                ]
+            },
         ],
-
         focus: [
-            'Contrast',
-            'Letter Spacing',
-            'Whitespace',
-            'Kerning',
+            {
+                'White Space': [
+                    "Is the space between all different elements on the page (text, visual material).",
+                    "It is very important for a feeling of balance in composition.",
+                    "Negative space is just as important as positive space."
+                ]
+            },
+            {
+                Margins: [
+                    "The margins should acommodate a fingers width when reading.",
+                    "Account for the trimming that will happen when the publication goes to print!"
+                ]
+            },
+            {
+                B5: [
+                    "176 x 250 mm"
+                ]
+            },
         ],
-
         print: [
-            'Inkjet',
-            'Risoprint',
-            'Silkscreen',
-            'Sublimation Print',
-            'UV Print',
-            'Xerox',
+            {
+                'Risoprint': [
+                    "Risoprint can deliver the most brilliant colours.",
+                    "Don't forget to seperate channels into CMYK.",
+                ]
+            },
+            {
+                'Inkjet': [
+                    "The ink will take a while to dry.",
+                    "Worse resolution thank Laser Printing."
+                ]
+            },
+            {
+                'Laser Print': [
+                    "Laser printing delivers the finest results.",
+                    "It is not possible to laser print on matte, textured stock."
+                ]
+            },
         ]
+    };
+
+    // This function creates a UL list from an array which is passed into it.
+    function makeUL(array) {
+        var list = document.createElement('ul');
+
+        for (var i = 0; i < array.length; i++) {
+            var item = document.createElement('li');
+
+            item.appendChild(document.createTextNode(array[i]));
+
+            list.appendChild(item);
+        }
+        return list;
     }
-}
 
     function randomWord() {
-        for (key in selection) {
-            var num = Math.floor(Math.random() * key.length)
-            document.querySelectorAll(`.${key}`).forEach((result) => {
-                result.innerHTML = selection[key][num];
-            })
+        randNum = 0
+        for (let i in selection) {
+            if (Object.prototype.hasOwnProperty.call(selection, i)) {
+                const categoryName = i;
+
+                randNum = [Math.floor(Math.random() * selection[i].length)]
+
+                for (let j in selection[i][randNum]) {
+                    document.querySelectorAll(`.${categoryName}`).forEach((result) => {
+                        result.innerHTML = j;
+                    });
+
+                    document.querySelectorAll(`.${categoryName}-statements`).forEach((result) => {
+                        result.innerHTML = j;
+                    });
+
+                    for (let k in selection[i][randNum][j]) {
+                        document.querySelectorAll(`.${categoryName}-statements`).forEach((result) => {
+                            result.innerHTML = makeUL(selection[i][randNum][j]).outerHTML;
+                        });
+                    }
+                }
+            }
         }
-    };
+    }
 </script>
 
 </html>

@@ -61,10 +61,14 @@ p {
     margin: auto;
 }
 
+#prompt {
+    font-size: var(--font-size-l)
+}
+
 span {
     font-weight: bold;
     font-family: Serif;
-    font-size: calc(var(--font-size-m)*1.1);
+    font-size: calc(var(--font-size-l)*1.1);
 }
 
 input[type="button"] {
@@ -92,7 +96,7 @@ table {
 
 table * {
     vertical-align: top;
-    padding: 1em 0 2em ;
+    padding: 0.5em 0 ;
 }
 
 table tr td:nth-child(1) {
@@ -101,3 +105,4 @@ table tr td:nth-child(1) {
     font-weight: bold;
     font-family: serif;
 }
+

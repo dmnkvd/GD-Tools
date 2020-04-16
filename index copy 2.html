@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Graphic Design Exercise Generator</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+    <h1>Graphic Design Exercise Generator</h1>
+    <p>Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus to <span
+            class="focus">[?]</span>. Consider the limitations of <span class="print">[?]</span> when printing.</p>
+    <input type="button" value="Generate!" onclick="randomWord()" />
+    <hr>
+    <table>
+        <tr>
+            <td class="type">[?]</td>
+            <td class="type-statements">
+                Statements one two three.
+            </td>
+        </tr>
+        <tr>
+            <td class="format">[?]</td>
+            <td class="format-statements">
+                Is something else.
+            </td>
+        </tr>
+        <tr>
+            <td class="focus">[?]</td>
+            <td class="focus-statements">
+                Is something else.
+            </td>
+        </tr>
+        <tr>
+            <td class="print">[?]</td>
+            <td class="print-statements">
+                Is something else.
+            </td>
+        </tr>
+    </table>
+</body>
+
+<script>
+const selection = {
+    type: [
+        'Magazine',
+        'Brochure',
+        'Flyer',
+        'Pamphlet',
+        'Poster',
+        'Business Card'
+    ],
+
+    format: [
+        'A4',
+        'Letter',
+        'A3',
+        'A2',
+        'A5',
+        'B6'
+    ],
+
+    focus: [
+        'Contrast',
+        'Letter Spacing',
+        'Whitespace',
+        'Kerning',
+    ],
+
+    print: [
+        'Inkjet',
+        'Risoprint',
+        'Silkscreen',
+        'Sublimation Print',
+        'UV Print',
+        'Xerox',
+    ]
+}
+
+const statements = {
+    type: [
+        ['Magazine', 'Banana', 'Apple'],
+        ['Magazine', 'Banana', 'Apple'],
+        ['Magazine', 'Banana', 'Apple'],
+        ['Magazine', 'Banana', 'Apple'],
+        ['Magazine', 'Banana', 'Apple'],
+        ['Magazine', 'Banana', 'Apple']
+    ],
+
+    format: [
+        'A4',
+        'Letter',
+        'A3',
+        'A2',
+        'A5',
+        'B6'
+    ],
+
+    focus: [
+        'Contrast',
+        'Letter Spacing',
+        'Whitespace',
+        'Kerning',
+    ],
+
+    print: [
+        'Inkjet',
+        'Risoprint',
+        'Silkscreen',
+        'Sublimation Print',
+        'UV Print',
+        'Xerox',
+    ]
+}
+
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i]));
+
+        // Add it to the list:
+        list.appendChild(item);
+    }
+    // Finally, return the constructed list:
+    return list;
+}
+
+function randomWord() {
+    let currentKey = 0
+    let randNum = 0
+
+    for (key in selection) {
+        currentKey = key
+        randNum = Math.floor(Math.random() * key.length)
+
+        document.querySelectorAll(`.${key}`).forEach((result) => {
+            result.innerHTML = selection[key][randNum];
+        })
+
+        document.querySelectorAll(`.${key}-statements`).forEach((result) => {
+            result.innerHTML = makeUL(statements[key][randNum]).outerHTML;
+        })
+    }
+}
+
+</script>
+
+</html>

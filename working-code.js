@@ -1,5 +1,4 @@
 const selection = {
-
     format: [
         'A4',
         'Letter',
@@ -26,11 +25,17 @@ const selection = {
     ]
 }
 
+var currentKey = 0
+var randNum = 0
 function randomWord() {
     for (key in selection) {
-        var num = Math.floor(Math.random() * key.length)
+        currentKey = key
+        let num = Math.floor(Math.random() * key.length)
         document.querySelectorAll(`.${key}`).forEach((result) => {
             result.innerHTML = selection[key][num];
         })
     }
+
+    document.querySelectorAll(`.${key}-statements`).forEach((result) => {
+        result.innerHTML = ;
 };

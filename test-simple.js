@@ -32,8 +32,8 @@ function randomWord() {
             for (let j in selection[i][randomItem]) {
                 console.log(j);
                 document.querySelectorAll(`.${categoryName}`).forEach((result) => {
-                        result.innerHTML = j;
-                    });
+                    result.innerHTML = j;
+                });
 
                 for (let k in selection[i][j]) {
                     for (let l in selection[i][j][k]) {

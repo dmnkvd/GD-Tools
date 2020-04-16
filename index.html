@@ -2,108 +2,114 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Graphic Design Exercise Generator</title>
-  <link rel="stylesheet" href="styles.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Graphic Design Exercise Generator</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 
 <body>
-  <h1>Graphic Design Exercise Generator</h1>
-  <p>Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus to <span
-      class="focus">[?]</span>. Consider the limitations of <span class="print">[?]</span> when printing.</p>
-  <input type="button" value="Generate!" onclick="randomWord()" />
-  <hr>
-  <table>
-    <tr>
-      <td class="type">[?]</td>
-      <td>Is a small booklet, typically printed for commercial purposes.</td>
-    </tr>
-    <tr>
-      <td class="format">[?]</td>
-      <td>Is something else.</td>
-    </tr>
-    <tr>
-      <td class="focus">[?]</td>
-      <td>Is something else.</td>
-    </tr>
-    <tr>
-      <td class="print">[?]</td>
-      <td>Is something else.</td>
-    </tr>
-  </table>
+    <h1>Graphic Design Exercise Generator</h1>
+    <p>Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus to <span
+            class="focus">[?]</span>. Consider the limitations of <span class="print">[?]</span> when printing.</p>
+    <input type="button" value="Generate!" onclick="randomWord()" />
+    <hr>
+    <table>
+        <tr>
+            <td class="type">[?]</td>
+            <td class="statements">
+                <ul>
+                    <li>Statement.</li>
+                    <li>Statement.</li>
+                    <li>Statement.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="format">[?]</td>
+            <td class="statements">Is something else.</td>
+        </tr>
+        <tr>
+            <td class="focus">[?]</td>
+            <td class="statements">Is something else.</td>
+        </tr>
+        <tr>
+            <td class="print">[?]</td>
+            <td class="statements">Is something else.</td>
+        </tr>
+    </table>
 </body>
 
 <script>
-  // The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
+    // The function following this could probably be made cleaner by using a more complex array/dictionary/hash for these data...
 
-  const selection = {
-    // type: [
-    //   {
-    //     'Publication':
-    //       [
-    //         'A printed work produced as a serial.',
-    //         'This and that statement.',
-    //         'Pay attention to the grey space!'
-    //       ]
-    //   },
-    //   {
-    //     'Poster':
-    //       [
-    //         'A single printed work, containing a statement.',
-    //         'This and that statement.',
-    //         'Pay attention to the grey space!'
-    //       ]
-    //   },
-    //   {
-    //     'Zine':
-    //       [
-    //         'A single printed work, containing a statement.',
-    //         'This and that statement.',
-    //         'Pay attention to the grey space!'
-    //       ]
-    //   },
-    //   {
-    //     'Book': 'An informal, typically photographic entry.'
-    //   },
-    //   {
-    //     'Brochure': 'An informal, typically photographic entry.'
-    //       ],
+    const selection = {
+        // type: [
+        //   {
+        //     'Publication':
+        //       [
+        //         'A printed work produced as a serial.',
+        //         'This and that statement.',
+        //         'Pay attention to the grey space!'
+        //       ]
+        //   },
+        //   {
+        //     'Poster':
+        //       [
+        //         'A single printed work, containing a statement.',
+        //         'This and that statement.',
+        //         'Pay attention to the grey space!'
+        //       ]
+        //   },
+        //   {
+        //     'Zine':
+        //       [
+        //         'A single printed work, containing a statement.',
+        //         'This and that statement.',
+        //         'Pay attention to the grey space!'
+        //       ]
+        //   },
+        //   {
+        //     'Book': 'An informal, typically photographic entry.'
+        //   },
+        //   {
+        //     'Brochure': 'An informal, typically photographic entry.'
+        //       ],
 
-    format: [
-      'A4',
-      'Letter',
-      'A3',
-      'A2',
-      'A5',
-      'B6'
-    ],
+        format: [
+            'A4',
+            'Letter',
+            'A3',
+            'A2',
+            'A5',
+            'B6'
+        ],
 
-    focus: [
-      'Contrast',
-      'Letter Spacing',
-      'Whitespace',
-      'Kerning',
-    ],
+        focus: [
+            'Contrast',
+            'Letter Spacing',
+            'Whitespace',
+            'Kerning',
+        ],
 
-    print: [
-      'Inkjet',
-      'Risoprint',
-      'Silkscreen',
-      'Sublimation Print',
-      'UV Print',
-      'Xerox',
-    ]
-  }
-
-  function randomWord() {
-    for (key in selection) {
-      var num = Math.floor(Math.random() * key.length)
-      var element = selection[key];
-      document.querySelectorAll(`.${key}`).forEach((result) => {
-        result.innerHTML = element[num];
-      })
+        print: [
+            'Inkjet',
+            'Risoprint',
+            'Silkscreen',
+            'Sublimation Print',
+            'UV Print',
+            'Xerox',
+        ]
     }
-  };
+}
+
+    function randomWord() {
+        for (key in selection) {
+            var num = Math.floor(Math.random() * key.length)
+            document.querySelectorAll(`.${key}`).forEach((result) => {
+                result.innerHTML = selection[key][num];
+            })
+        }
+    };
 </script>
 
 </html>

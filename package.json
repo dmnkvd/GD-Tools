@@ -1,0 +1,24 @@
+{
+  "name": "gd-tools",
+  "version": "1.0.0",
+  "description": "The purpose of this tool is to create a series of graphic design assignments, without the requirement for a supervisor.",
+  "main": "test-simple.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnkvd/GD-Tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmnkvd/GD-Tools/issues"
+  },
+  "homepage": "https://github.com/dmnkvd/GD-Tools#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}

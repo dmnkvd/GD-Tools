@@ -12,29 +12,22 @@
     <p id="prompt">Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus
         to <span class="focus">[?]</span>. The publication will be printed using <span class="print">[?]</span>.</p>
     <input type="button" value="Generate!" onclick="randomWord()" />
-    <hr>
     <table>
         <tr>
             <td class="type">[?]</td>
-            <td class="type-statements">
-                <ul>
-                    <li>Statement.</li>
-                    <li>Statement.</li>
-                    <li>Statement.</li>
-                </ul>
-            </td>
+            <td class="type-statements">?????</td>
         </tr>
         <tr>
             <td class="format">[?]</td>
-            <td class="format-statements">Is something else.</td>
+            <td class="format-statements">?????</td>
         </tr>
         <tr>
             <td class="focus">[?]</td>
-            <td class="focus-statements">Is something else.</td>
+            <td class="focus-statements">?????</td>
         </tr>
         <tr>
             <td class="print">[?]</td>
-            <td class="print-statements">Is something else.</td>
+            <td class="print-statements">?????</td>
         </tr>
     </table>
 </body>
@@ -44,8 +37,8 @@
         type: [
             {
                 Publication: [
-                    "Publications are not that hard to design.",
-                    "Publication are also really cool.",
+                    "Publications are all sorts of periodical printwork.",
+                    "Publication are really cool.",
                     "The paper choice is really important.",
                 ]
             },
@@ -57,7 +50,7 @@
             },
             {
                 Poster: [
-                    "Magazine statement one.",
+                    "Poster statement one.",
                 ]
             },
         ],
@@ -96,8 +89,8 @@
                 ]
             },
             {
-                B5: [
-                    "176 x 250 mm"
+                Ragging: [
+                    "A balanced rag is crucial for good legibility."
                 ]
             },
         ],
@@ -137,6 +130,8 @@
         return list;
     }
 
+const colors = ['#E30613', '#A0B100', '#223C7E', '#FDC300', '#DF81A9'];
+
     function randomWord() {
         randNum = 0
         for (let i in selection) {
@@ -162,6 +157,10 @@
                 }
             }
         }
+
+        document.querySelectorAll("li, span").forEach((result) => {
+                    result.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    });
     }
 </script>
 

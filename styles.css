@@ -1,6 +1,6 @@
 :root {
     --font-size-s: 14px;
-    --font-size-m: 18px;
+    --font-size-m: 22px;
     --font-size-l: 40px;
     --line-height: 1.10em;
     --higlight-clr: #f7e300;
@@ -15,19 +15,21 @@
     }
 
 @font-face {
-    font-family: 'garnettextrabold';
-    src: url('/media/fonts/Garnett-ExtraBold.woff2') format('woff2'),
-         url('/media/fonts/Garnett-ExtraBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'Garnett';
-    src: url('/media/fonts/Garnett-Regular.woff') format('woff');
+    font-family: 'cigarslight';
+    src: url('fonts/cigars-light-webfont.woff2') format('woff2'),
+         url('fonts/cigars-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'sharp_groteskmedium_20';
+    src: url('fonts/sharpgrotesk-medium20_2-webfont.woff2') format('woff2'),
+         url('fonts/sharpgrotesk-medium20_2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 tr > td:nth-of-type(1) {
@@ -41,7 +43,7 @@ tr > td:nth-of-type(1) {
     font-family: 'Arial', Sans-Serif;
     font-weight: 400;
     color: var(--main-clr);
-    font-family: Cigars;
+    font-family: 'cigarslight';
 }
 
 body {
@@ -50,28 +52,36 @@ body {
 }
 
 h1 {
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-s);
     line-height: 1.1em;
+    font-family: 'sharp_groteskmedium_20';
     text-align: center;
     width: fit-content;
     margin: auto;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 3em;
 }
 
 p {
     font-size: var(--font-size-m);
-    font-family: Cigars;
+    font-family: 'cigarslight';
+    line-height: 1.2em;
     display: block;
     width: 50%;
     /* padding: 30px; */
     height: fit-content;
-    min-height: 200px;
     text-align: center;
     box-sizing: border-box;
     margin: auto;
     /* background-color: white; */
     /* border: 3px dotted #737373; */
+}
+
+#challenge {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    min-height: 50px;
 }
 
 /* hr {
@@ -86,16 +96,17 @@ ul {
 }
 
 #prompt {
-    font-size: var(--font-size-l)
+    font-size: calc(var(--font-size-l)*0.8);
+    height: 200px;
 }
 
 span {
     font-weight: bold;
-    font-family: Serif;
-    font-size: calc(var(--font-size-l)*1.1);
+    font-family: 'sharp_groteskmedium_20', Sans-Serif;
+    font-size: calc(var(--font-size-l)*0.9);
 }
 
-input[type="button"] {
+#generate {
     width: fit-content;
     display: block;
     margin: auto;
@@ -106,31 +117,48 @@ input[type="button"] {
     border-radius: 50px;
     color: white;
     padding: 15px 32px;
-    font-family: Shrikhand;
+    font-family:'sharp_groteskmedium_20';
     text-align: center;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 22px;
     cursor: pointer;
 }
 
+#banana {
+    font: bold 20px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #777777;
+    padding: 4px 10px 4px 10px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    width: fit-content;
+    display: block;
+    margin: auto;
+    margin-bottom: 3em;
+  }
+
 table {
-    width: 50%;
+    width: 60%;
     margin: auto;
     border: 5px outset #FAFAFA;
     padding: 20px;
+    background: white;
 }
 
 table * {
     vertical-align: top;
     /* padding: 0.5em 0 ; */
-    background: white;
 }
 
 table tr td:nth-child(1) {
     width: 20%;
     text-align: left;
     font-weight: bold;
-    font-family: serif;
+    font-family: 'sharp_groteskmedium_20';
+    font-size: 15px;
 }
 
 @media print {

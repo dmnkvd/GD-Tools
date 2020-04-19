@@ -11,7 +11,7 @@
     <h1>Graphic Design Exercise Generator</h1>
     <p id="prompt">Create a <span class="type">[?]</span> in <span class="format">[?]</span> format. Pay specific focus
         to <span class="focus">[?]</span>. The publication will be printed using <span class="print">[?]</span>.</p>
-    <input type="button" value="Generate!" onclick="randomWord()" />
+    <input id="generate" type="button" value="Generate!" onclick="randomWord()" />
     <table>
         <tr>
             <td class="type">[?]</td>
@@ -30,6 +30,8 @@
             <td class="print-statements">?????</td>
         </tr>
     </table>
+    <p id="challenge">Inspiration might be difficult to come accrosss in these desperate times. Feel free to get inspired by the following master text:</p>
+    <a id="banana" href="banana/banana.pdf" download>🍌 Banana.pdf</a>
 </body>
 
 <script>
@@ -53,6 +55,16 @@
                     "Poster statement one.",
                 ]
             },
+            {
+                Map: [
+                    "Pay attention to the information layers of the map",
+                ]
+            },
+            {
+                "Public Announcement": [
+                    "Announcements are typically made by corporate or government officials.",
+                ]
+            },
         ],
         format: [
             {
@@ -71,6 +83,11 @@
             {
                 B5: [
                     "176 x 250 mm"
+                ]
+            },
+            {
+                B6: [
+                    "125 x 176 mm"
                 ]
             },
         ],
